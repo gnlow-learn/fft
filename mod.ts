@@ -29,9 +29,16 @@ class Complex {
             this.r * c.i + this.i * c.r,
         )
     }
+    pow(n: number) {
+        let result = new Complex(1)
+        for(let i=0;i<n;i++) {
+            result = result.mul(this)
+        }
+        return result
+    }
     [Symbol.toPrimitive](hint: string) {
         if (hint == "string" || hint == "default") {
-            return (prec(this.r, 3)?prec(this.r, 3)+"":"")
+            return (prec(this.r, 3)?prec(this.r, 3)+"":prec(this.i, 3)?"":"0")
                 +  (prec(this.r, 3)&&(prec(this.i, 3) > 0)?"+":"")
                 +  (prec(this.i, 3)?`${
                     prec(this.i, 3)!=1?prec(this.i, 3):""
