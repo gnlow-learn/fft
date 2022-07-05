@@ -2,7 +2,7 @@ import { Complex } from "./Complex.ts"
 
 const tau = 2 * Math.PI
 
-const fftProto = (isInverse: boolean) => (p: Complex[]) => {
+const fftProto = (isInverse: boolean, isInit?: boolean) => (p: Complex[]) => {
     const n = p.length
     if (n == 1) return p
     const w = new Complex(
@@ -10,8 +10,8 @@ const fftProto = (isInverse: boolean) => (p: Complex[]) => {
         Math.sin(tau / n) * (isInverse ? -1 : 1),
     )
     const [yEven, yOdd] = [
-        fft(p.filter((_, i) => i % 2 == 0)),
-        fft(p.filter((_, i) => i % 2 == 1)),
+        fftProto(isInverse)(p.filter((_, i) => i % 2 == 0)),
+        fftProto(isInverse)(p.filter((_, i) => i % 2 == 1)),
     ]
     const y: Complex[] = Array(n).fill(undefined).fill(new Complex(0))
     let wJ = new Complex(1)
@@ -20,9 +20,9 @@ const fftProto = (isInverse: boolean) => (p: Complex[]) => {
         y[j + n/2] = yEven[j].sub(wJ.mul(yOdd[j]))
         wJ = wJ.mul(w)
     }
-    if (isInverse) return y.map(c => c.mul(new Complex(1 / n)))
+    if (isInverse && isInit) return y.map(c => c.mul(new Complex(1 / n)))
     else return y
 }
 
 export const fft = fftProto(false)
-export const ifft = fftProto(true)
+export const ifft = fftProto(true, true)
