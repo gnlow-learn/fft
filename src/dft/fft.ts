@@ -1,4 +1,4 @@
-import { Complex } from "./Complex.ts"
+import { Complex } from "../Complex.ts"
 
 const tau = 2 * Math.PI
 
