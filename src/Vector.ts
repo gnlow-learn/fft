@@ -28,6 +28,8 @@ export class Vector {
                 n => n.mul(Complex.from(multiplier))
             ))
         } else {
+            if (this.arr.length != multiplier.arr.length)
+                throw Error(`Wrong dimension: expected: ${this.arr.length} but got: ${multiplier.arr.length}`)
             return new Vector(this.arr.map(
                 (n, i) => n.mul(multiplier.arr[i])
             ))
