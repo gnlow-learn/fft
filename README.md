@@ -19,11 +19,20 @@
 ### 자연상수
 - $ {d \over dt} e^t = e^t $
 - $ {d \over dt} e^{it} = i \cdot e^{it} $
-### 삼각함수의 덧셈정리
+### 삼각 공식
+파동의 법칙 263p
+#### 덧셈 정리
 - $ \sin(a+b) = \sin a \cos b + \cos a \sin b $
 - $ \cos(a+b) = \cos a \cos b - \sin a \sin b $
 - $ \sin(a-b) = \sin a \cos b - \cos a \sin b $
 - $ \cos(a-b) = \cos a \cos b + \sin a \sin b $
+
+#### 응용
+- $ \cos a \sin b = {\sin (a + b) - \sin (a - b) \over 2} $
+- $ a + b = A, a - b = B $
+- $ \cos a \sin b = {\sin A - \sin B \over 2} $
+- $ \sin A - \sin B = 2 \cos {A + B \over 2} \sin {A - B \over 2} $
+
 ## 파일 구조
 ### src/dft
 - https://speakerdeck.com/wookayin/fast-fourier-transform-algorithm
