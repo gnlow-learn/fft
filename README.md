@@ -19,6 +19,13 @@
 ### 자연상수
 - $ {d \over dt} e^t = e^t $
 - $ {d \over dt} e^{it} = i \cdot e^{it} $
+### 푸리에 급수
+파동의 법칙
+- $ f(t) = a_0 + \sum_{n=1}^\infty (a_n \cos n \omega t + b_n \sin n \omega t) $
+### 푸리에 계수
+파동의 법칙 317p
+- $ a_0 = {1 \over T}\int_0^T f(t)\ dt $
+- $ a_n = {2 \over T}\int_0^T f(t) \cos n \omega t\ dt $
 ### 삼각 공식
 파동의 법칙 263p
 #### 덧셈 정리
@@ -32,7 +39,10 @@
 - $ a + b = A, a - b = B $
 - $ \cos a \sin b = {\sin A - \sin B \over 2} $
 - $ \sin A - \sin B = 2 \cos {A + B \over 2} \sin {A - B \over 2} $
-
+### 삼각함수의 미분
+파동의 법칙 273p
+- $ {d \over d \theta} \sin \theta = \cos \theta $
+- $ {d \over dt} \sin n \omega t = n \omega \cos n \omega t $
 ## 파일 구조
 ### src/dft
 - https://speakerdeck.com/wookayin/fast-fourier-transform-algorithm
