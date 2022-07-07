@@ -26,6 +26,7 @@
 파동의 법칙 317p
 - $ a_0 = {1 \over T}\int_0^T f(t)\ dt $
 - $ a_n = {2 \over T}\int_0^T f(t) \cos n \omega t\ dt $
+- $ b_n = {2 \over T}\int_0^T f(t) \sin n \omega t\ dt $
 ### 삼각 공식
 파동의 법칙 263p
 #### 덧셈 정리
