@@ -45,7 +45,7 @@ export class Vector {
         if (!Array.isArray(arr)) {
             return arr
         } else if (typeof arr[0] == "number") {
-            return new Vector((arr as number[]).map(Complex.from))
+            return new Vector((arr as number[]).map(r => Complex.from(r)))
         } else {
             return new Vector(arr as Complex[])
         }

@@ -27,3 +27,8 @@ console.log(
     .mul(fft([2,-1,3,-5])))
     +""
 )
+console.log(
+    Vector.from([1,2,3,4])
+    .mul(Vector.from([4,3,2,1]))
+    +""
+)
