@@ -50,4 +50,7 @@ export class Complex {
     static from(r: number, i?: number) {
         return new Complex(r, i)
     }
+    static lift(f: (x: number) => number) {
+        return (c: Complex) => new Complex(f(c.r))
+    }
 }
