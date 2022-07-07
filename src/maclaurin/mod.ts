@@ -1,10 +1,9 @@
 import { Fn } from "../Fn.ts"
-import { Complex } from "../Complex.ts"
 import { factorial } from "../util.ts"
 
 export class Maclaurin {
     f
-    private cache: Complex[] = []
+    private cache: number[] = []
     private nowF: Fn
     constructor (f: Fn) {
         this.nowF = this.f = f
@@ -15,14 +14,13 @@ export class Maclaurin {
         } else {
             for(let i=0;this.cache.length<n;i++) {
                 this.cache.push(
-                    this.nowF.diff().f(0)
+                    this.nowF.f(0)
                     /
-                    Complex.from(factorial(i))
+                    (i > 1 ? factorial(i-1) : 1)
                 )
                 this.nowF = this.nowF.diff()
             }
             return this.cache
         }
-        
     }
 }
