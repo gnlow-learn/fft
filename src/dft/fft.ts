@@ -1,4 +1,5 @@
 import { Complex } from "../Complex.ts"
+import { Vector } from "../Vector.ts"
 
 const tau = 2 * Math.PI
 
@@ -24,5 +25,5 @@ const fftProto = (isInverse: boolean, isInit?: boolean) => (p: Complex[]) => {
     else return y
 }
 
-export const fft = fftProto(false)
-export const ifft = fftProto(true, true)
+export const fft = Vector.lift(fftProto(false))
+export const ifft = Vector.lift(fftProto(true, true))

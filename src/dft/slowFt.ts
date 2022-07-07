@@ -1,4 +1,5 @@
 import { Complex } from "../Complex.ts"
+import { Vector } from "../Vector.ts"
 
 const tau = 2 * Math.PI
 
@@ -23,5 +24,5 @@ const slowFtProto = (isInverse: boolean) => (p: Complex[]) => {
     else return y
 }
 
-export const slowFt = slowFtProto(false)
-export const iSlowFt = slowFtProto(true)
+export const slowFt = Vector.lift(slowFtProto(false))
+export const iSlowFt = Vector.lift(slowFtProto(true))

@@ -1,12 +1,17 @@
-function prec(number: number, precision: number) {
-    const factor = Math.pow(10, precision)
-    const n = precision < 0 ? number : 0.01 / factor + number
-    return Math.round(n * factor) / factor;
-}
+import { prec } from "./util.ts"
 
 export class Complex {
-    private r
-    private i
+    readonly r
+    readonly i
+
+    get view() {
+        return (prec(this.r, 3)?prec(this.r, 3)+"":prec(this.i, 3)?"":"0")
+            +  (prec(this.r, 3)&&(prec(this.i, 3) > 0)?"+":"")
+            +  (prec(this.i, 3)?`${
+                prec(this.i, 3)!=1?prec(this.i, 3):""
+            }i`:"")
+    }
+
     constructor(r: number, i?: number) {
         this.r = r
         this.i = i || 0
@@ -38,11 +43,11 @@ export class Complex {
     }
     [Symbol.toPrimitive](hint: string) {
         if (hint == "string" || hint == "default") {
-            return (prec(this.r, 3)?prec(this.r, 3)+"":prec(this.i, 3)?"":"0")
-                +  (prec(this.r, 3)&&(prec(this.i, 3) > 0)?"+":"")
-                +  (prec(this.i, 3)?`${
-                    prec(this.i, 3)!=1?prec(this.i, 3):""
-                }i`:"")
+            return this.view
         }
+    }
+    
+    static from(r: number, i?: number) {
+        return new Complex(r, i)
     }
 }
