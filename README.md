@@ -27,6 +27,10 @@
 - $ a_0 = {1 \over T}\int_0^T f(t)\ dt $
 - $ a_n = {2 \over T}\int_0^T f(t) \cos n \omega t\ dt $
 - $ b_n = {2 \over T}\int_0^T f(t) \sin n \omega t\ dt $
+### 매클로린 전개
+파동의 법칙 452p  
+src/maclaurin
+- $ f(x) = \sum_{n=0}^\infty {1 \over n!} f^{(n)}(0)x^n $
 ### 삼각 공식
 파동의 법칙 263p
 #### 덧셈 정리
